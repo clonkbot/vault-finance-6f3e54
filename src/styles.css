@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-charcoal: #0D0D0D;
+  --color-card: #1A1A1A;
+  --color-gold: #C9A962;
+  --color-cream: #F5F0E8;
+}
+
+/* Custom colors for Tailwind */
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Background color */
+.bg-charcoal {
+  background-color: var(--color-charcoal);
+}
+
+/* Text colors */
+.text-cream {
+  color: var(--color-cream);
+}
+
+.text-gold {
+  color: var(--color-gold);
+}
+
+/* Background colors */
+.bg-gold {
+  background-color: var(--color-gold);
+}
+
+/* Gradient stops */
+.from-gold {
+  --tw-gradient-from: var(--color-gold) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(201 169 98 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.to-gold\/60 {
+  --tw-gradient-to: rgb(201 169 98 / 0.6) var(--tw-gradient-to-position);
+}
+
+/* Glass card effect */
+.card-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+}
+
+/* Diagonal gold accent */
+.diagonal-accent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(
+    135deg,
+    transparent 45%,
+    rgba(201, 169, 98, 0.1) 50%,
+    transparent 55%
+  );
+  pointer-events: none;
+}
+
+/* Noise texture overlay */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 100;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Animations */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  opacity: 0;
+}
+
+@keyframes width-grow {
+  from {
+    width: 0;
+  }
+}
+
+.animate-width {
+  animation: width-grow 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Selection color */
+.selection\:bg-gold\/30 ::selection {
+  background-color: rgba(201, 169, 98, 0.3);
+}
+
+/* Gold background with opacity */
+.bg-gold\/5 {
+  background-color: rgba(201, 169, 98, 0.05);
+}
+
+.from-gold\/20 {
+  --tw-gradient-from: rgba(201, 169, 98, 0.2) var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(201 169 98 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.to-gold\/5 {
+  --tw-gradient-to: rgba(201, 169, 98, 0.05) var(--tw-gradient-to-position);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Body styles */
+body {
+  background-color: var(--color-charcoal);
+  color: var(--color-cream);
+}
